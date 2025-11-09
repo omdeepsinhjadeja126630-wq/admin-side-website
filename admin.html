@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    :root {
+      --accent:#0077ff;
+      --bg:#f5f7fb;
+      --card:#fff;
+      --danger:#c62828;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      width: 340px;
+    }
+    h2 { text-align:center; margin-bottom:16px; }
+    input {
+      width:100%;
+      padding:10px 12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      margin-bottom:12px;
+    }
+    button {
+      width:100%;
+      background:var(--accent);
+      color:white;
+      font-weight:600;
+      padding:10px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .error { color:var(--danger); font-size:0.9rem; min-height:20px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Admin Login</h2>
+    <input id="adminEmail" type="email" placeholder="Email">
+    <input id="adminPass" type="password" placeholder="Password">
+    <div class="error" id="error"></div>
+    <button id="loginBtn">Login</button>
+  </div>
+
+  <script>
+    const VALID_ADMIN = "admin@gmail.com";
+    const VALID_PASS  = "Admin@123";
+    const err = document.getElementById('error');
+    document.getElementById('loginBtn').onclick = ()=>{
+      const email = adminEmail.value.trim();
+      const pass = adminPass.value.trim();
+      if(email===VALID_ADMIN && pass===VALID_PASS){
+        sessionStorage.setItem('adminLogged','true');
+        window.location.href='dashboard.html';
+      } else {
+        err.textContent = "Invalid credentials!";
+      }
+    };
+  </script>
+</body>
+</html>

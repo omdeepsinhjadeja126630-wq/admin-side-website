@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Portfolio</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;}
+    header{background:#0077ff;color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+    .container{padding:20px;}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;}
+    th,td{padding:12px;border-bottom:1px solid #eee;}
+    th{background:#0077ff;color:white;text-align:left;}
+    tr:hover{background:#f0f7ff;}
+    .form-box{background:white;padding:20px;border-radius:10px;margin-top:20px;}
+    input,textarea{width:100%;padding:10px;margin-top:8px;border:1px solid #ccc;border-radius:6px;}
+    button{background:#0077ff;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:bold;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manage Portfolio</h1>
+    <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </header>
+  <div class="container">
+    <table>
+      <tr><th>Project Title</th><th>Image</th><th>Description</th><th>Action</th></tr>
+      <tr><td>Landing Page</td><td><img src="images/sample1.jpg" width="60"></td><td>Modern responsive landing page</td><td><button>Edit</button> <button>Delete</button></td></tr>
+    </table>
+
+    <div class="form-box">
+      <h3>Add / Edit Project</h3>
+      <input type="text" placeholder="Project Title">
+      <input type="file" accept="image/*">
+      <textarea placeholder="Project Description"></textarea>
+      <button>Save</button>
+    </div>
+  </div>
+</body>
+</html>

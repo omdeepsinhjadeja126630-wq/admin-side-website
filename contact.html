@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Contact Messages</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;}
+    header{background:#0077ff;color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+    .container{padding:20px;}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;}
+    th,td{padding:12px;border-bottom:1px solid #eee;}
+    th{background:#0077ff;color:white;text-align:left;}
+    tr:hover{background:#f0f7ff;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manage Contact Messages</h1>
+    <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </header>
+  <div class="container">
+    <table>
+      <tr><th>Name</th><th>Email</th><th>Message</th><th>Action</th></tr>
+      <tr><td>Amit Sharma</td><td>amit@gmail.com</td><td>Hello! I want to work with you.</td><td><button>Delete</button></td></tr>
+    </table>
+  </div>
+</body>
+</html>

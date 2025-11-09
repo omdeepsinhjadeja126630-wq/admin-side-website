@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Blog</title>
+  <style>
+    body{font-family:Poppins,sans-serif;background:#f5f7fb;margin:0;}
+    header{background:#0077ff;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;}
+    main{padding:20px;max-width:900px;margin:auto;}
+    input,textarea{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #ccc;}
+    button{background:#0077ff;color:#fff;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;margin-top:10px;}
+    .blog-list{margin-top:20px;}
+    .post{background:#fff;padding:15px;border-radius:8px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    .post button{background:#c62828;}
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Manage Blog</h2>
+    <button onclick="window.location.href='dashboard.html'">Back</button>
+  </header>
+  <main>
+    <h3>Add New Blog</h3>
+    <input id="title" placeholder="Blog Title">
+    <textarea id="content" placeholder="Blog Content..."></textarea>
+    <button id="addBtn">Add Blog</button>
+
+    <h3>All Blogs</h3>
+    <div class="blog-list" id="blogList"></div>
+  </main>
+
+  <script>
+    if(sessionStorage.getItem('adminLogged')!=='true'){window.location.href='admin.html';}
+
+    let blogs = JSON.parse(localStorage.getItem('blogs')||'[]');
+    const list = document.getElementById('blogList');
+    const render = ()=>{
+      list.innerHTML = blogs.map((b,i)=>`
+        <div class='post'>
+          <h4>${b.title}</h4>
+          <p>${b.content}</p>
+          <button onclick="del(${i})">Delete</button>
+        </div>
+      `).join('');
+    };
+    render();
+
+    document.getElementById('addBtn').onclick=()=>{
+      const t = title.value.trim(), c = content.value.trim();
+      if(!t || !c) return alert('Enter title and content!');
+      blogs.push({title:t,content:c});
+      localStorage.setItem('blogs',JSON.stringify(blogs));
+      title.value=''; content.value='';
+      render();
+    };
+    function del(i){
+      if(confirm('Delete this blog?')){
+        blogs.splice(i,1);
+        localStorage.setItem('blogs',JSON.stringify(blogs));
+        render();
+      }
+    }
+  </script>
+</body>
+</html>

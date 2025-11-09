@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+    }
+    header {
+      background:#0077ff;
+      color:#fff;
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    header h2 { margin:0; font-size:1.3rem; }
+    header button {
+      background:#fff;
+      color:#0077ff;
+      border:none;
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer;
+    }
+    main {
+      padding:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+    .card {
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+    .card h3 { margin:10px 0; }
+    .card button {
+      background:#0077ff;
+      color:#fff;
+      border:none;
+      padding:8px 16px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .card button:hover { opacity:0.9; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Admin Dashboard</h2>
+    <button id="logout">Logout</button>
+  </header>
+
+  <main>
+    <div class="card">
+      <h3>Manage Home Page</h3>
+      <button onclick="openPage('index.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage About Page</h3>
+      <button onclick="openPage('about.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage Services</h3>
+      <button onclick="openPage('services.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage Portfolio</h3>
+      <button onclick="openPage('portfolio.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage Clients</h3>
+      <button onclick="openPage('clients.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage Blog</h3>
+      <button onclick="openPage('blog.html')">Open</button>
+    </div>
+    <div class="card">
+      <h3>Manage Contact</h3>
+      <button onclick="openPage('contact.html')">Open</button>
+    </div>
+  </main>
+
+  <script>
+    if(sessionStorage.getItem('adminLogged')!=='true'){
+      window.location.href='admin.html';
+    }
+
+    function openPage(page){
+      window.open(page,'_blank');
+    }
+
+    document.getElementById('logout').onclick=()=>{
+      sessionStorage.removeItem('adminLogged');
+      window.location.href='admin.html';
+    }
+  </script>
+</body>
+</html>

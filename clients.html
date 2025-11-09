@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Clients</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;}
+    header{background:#0077ff;color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+    .container{padding:20px;}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;}
+    th,td{padding:12px;border-bottom:1px solid #eee;}
+    th{background:#0077ff;color:white;text-align:left;}
+    tr:hover{background:#f0f7ff;}
+    .form-box{background:white;padding:20px;border-radius:10px;margin-top:20px;}
+    input{width:100%;padding:10px;margin-top:8px;border:1px solid #ccc;border-radius:6px;}
+    button{background:#0077ff;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:bold;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Manage Clients</h1>
+    <button onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+  </header>
+  <div class="container">
+    <table>
+      <tr><th>Client Name</th><th>Company</th><th>Action</th></tr>
+      <tr><td>John Doe</td><td>ABC Pvt. Ltd.</td><td><button>Edit</button> <button>Delete</button></td></tr>
+    </table>
+
+    <div class="form-box">
+      <h3>Add / Edit Client</h3>
+      <input type="text" placeholder="Client Name">
+      <input type="text" placeholder="Company Name">
+      <button>Save</button>
+    </div>
+  </div>
+</body>
+</html>
